@@ -1,13 +1,15 @@
 services:
   backend:
-    image: jwt-test:latest
+    build: .
     ports:
       - "5000:5000"
+    env_file:
+      - .env
   mongo_container:
     image: mongo
     ports:
       - "27017:27017"
-    environment:
-      CONFIG_MONGODB_URL: mongodb://mongo_container:27017/
     volumes:
-      - /data/mongodb
+      - db_data:/data/db
+volumes:
+  db_data:

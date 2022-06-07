@@ -1,5 +1,7 @@
+var _ = require('lodash');
+var jwt = require("jsonwebtoken");
+
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
 require("./config/database").connect();
 
 const bcrypt = require("bcryptjs/dist/bcrypt");
